@@ -1,0 +1,16 @@
+#Remotely execute:
+    apt-get update
+    apt-get install nginx -y
+    systemctl enable nginx
+    rm /etc/nginx/nginx.conf
+    echo "<h1 style='color:red'>This is my custom Error 404 page: Not found :-(</h1>" | sudo tee /usr/share/nginx/html/custom_404.html
+    #^ is only needed if not running as root. If we run as root then we can just use > I believe
+#End remote execute
+
+#push
+    push new nginx.conf file to /etc/nginx/nginx.conf
+#End push
+
+#Remotely execute:
+    systemctl reload nginx
+#End remote execute
