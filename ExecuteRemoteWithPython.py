@@ -39,7 +39,7 @@ class ExecuteSSH:
             print(str(e))
             sys.exit(-1)
     
-    def uploadfile(self,location):
+    def uploadfile(self,location): #update this to take both source and dest. as input - i think it will look better
         ftp_client = self.ssh.open_sftp()
         #ftp_client.put(str(location), '/tmp/')
         #ftp_client.close()
